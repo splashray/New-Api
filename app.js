@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const mongoose =  require('mongoose')
 const bodyParser = require('body-parser')
@@ -38,11 +39,11 @@ const newsPageRoutes = require('./routes/newsPage')
 
 app.use('/news', newsPageRoutes)
 
-const port = 3002
+const port = process.env.PORT
 
 app.listen(port, console.log(`server started on port ${port}`))
 
-mongoose.connect('mongodb+srv://samdenukan:Humanhurricane01@cluster0.2hzoipq.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true})
 .then(result => {
   console.log('Database connected');
 })
