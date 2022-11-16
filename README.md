@@ -1,0 +1,3 @@
+# NewsApi
+
+Added Readme
