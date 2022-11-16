@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev":"nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,9 @@
     "nodemon": "^2.0.20",
     "swagger-jsdoc": "^6.2.5",
     "swagger-ui-express": "^4.6.0"
+  },
+  "engine": {
+    "node": "14.x",
+    "npm": "6.9.0"
   }
 }
