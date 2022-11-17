@@ -1,4 +1,4 @@
-require('dotenv').config();
+const config = require('./config')
 const express = require('express')
 const mongoose =  require('mongoose')
 const bodyParser = require('body-parser')
@@ -39,11 +39,11 @@ const newsPageRoutes = require('./routes/newsPage')
 
 app.use('/news', newsPageRoutes)
 
-const port = process.env.PORT
+const port = config.PORT
 
 app.listen(port, console.log(`server started on port ${port}`))
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true})
 .then(result => {
   console.log('Database connected');
 })
