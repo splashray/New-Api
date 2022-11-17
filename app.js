@@ -4,7 +4,7 @@ const mongoose =  require('mongoose')
 const bodyParser = require('body-parser')
 const swaggerUi = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
-
+const cors = require('cors')
 
 const options = {
   definition: {
@@ -16,7 +16,8 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3002"
+        // url: "http://localhost:3002"
+        url: "https://d-news-api.herokuapp.com/"
       }
     ],
   },
@@ -27,6 +28,7 @@ const specs = swaggerJsDoc(options)
 
 const app = express()
 
+app.use(cors())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
 
 app.use(express.json())
